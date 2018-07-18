@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>i-novus Test</title>
+	<!-- CSS Framework Bulma-->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+	<script src="js/main.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="block">
+			<article class="message">
+				<div class="message-header">
+					<p>1) Напишите функцию сортировки массива по возрастанию не используя .sort(). Требуется свой алгоритм.</p>
+				</div>
+				<div class="message-body">
+					<p class="content is-medium">
+						var list = [17, 3, 89, -7, 18, 67.5];
+					</p>
+				</div>
+			</article>
+			<article class="message is-success">
+				<div class="message-header">
+					<p>Решение</p>
+				</div>
+				<div class="message-body">
+					<p class="content is-medium">var list = [17, 3, 89, -7, 18, 67.5];</p>
+					<p class="content is-medium">var count = list.length - 1;</p>
+					<p class="content is-medium">for (var i = 0; i < count; i++)</p>
+					<p class="content is-medium">for (var j = 0; j < count-i; j++)</p>
+					<p class="content is-medium">if (list[j]> list[j+1]) {</p>
+					<p class="content is-medium">var temp = list[j];</p>
+					<p class="content is-medium">list[j] = list[j+1];</p>
+					<p class="content is-medium">list[j+1] = temp;</p>
+					<p class="content is-medium">}</p>
+					<p class="content is-medium">alert(list);</p>
+				</div>
+				<div class="block">
+					<input type="button" class="button is-success" value="Результат" name="resultsortArray" OnClick="showArray();">
+				</div>
+			</article>
+		</div>
+
+		<div class="block">
+			<article class="message">
+				<div class="message-header">
+					<p>2) Напишите функцию проверки типа данных на Array не используя метод Array.isArray().</p>
+				</div>
+			</article>
+			<article class="message is-success">
+				<div class="message-header">
+					<p>Решение</p>
+				</div>
+				<div class="message-body">
+					<p class="content is-medium">function isTrueArray(arr){</p>
+					<p class="content is-medium">var myisArray = {}.toString;</p>
+					<p class="content is-medium">if(arr){</p>
+					<p class="content is-medium">return myisArray.call(arr) === '[object Array]';</p>
+					<p class="content is-medium">}</p>
+					<p class="content is-medium">return false;</p>
+					<p class="content is-medium">}</p>
+					<p class="content is-medium">function showisArray(){</p>
+					<p class="content is-medium">alert(isTrueArray(list));</p>
+					<p class="content is-medium">}</p>
+
+				</div>
+				<div class="block">
+					<input type="button" class="button is-success" value="Результат" name="resultisArray" OnClick="showisArray();">
+				</div>
+			</article>
+
+		</div>
+		<div class="block">
+			<article class="message">
+				<div class="message-header">
+					<p>3) Как вызвать асинхронно эту функцию?</p>
+				</div>
+				<div class="message-body">
+					<p class="content is-medium">function foo() {</p>
+					<p class="content is-medium">alert("Hello");</p>
+					<p class="content is-medium">}</p>
+				</div>
+			</article>
+			<article class="message is-success">
+				<div class="message-header">
+					<p>Решение</p>
+				</div>
+				<div class="message-body">
+					<pre class="content is-medium">
+//callback
+
+function boo(){
+	alert('World');
+}
+function foo(callback){
+	alert('Hello');
+	callback();
+}
+//setTimeout
+function foo(){
+	setTimeout(function afterFiveSeconds(){
+		alert('World');
+	}, 5000);
+	alert('Hello');
+}
+
+					</pre>
+				</div>
+				<div class="block">
+					<input type="button" class="button is-success" value="callback" name="foo" OnClick="foo(boo)">
+					<input type="button" class="button is-success" value="setTimeout" name="foo" OnClick="foo()">
+				</div>
+			</article>
+
+		</div>
+		<div class="block">
+			<article class="message">
+				<div class="message-header">
+					<p>4) Написать функцию ​форматирования ​строки</p>
+				</div>
+				<div class="message-body">
+					<p class="content is-medium">var name = "Иван";</p>
+					<p class="content is-medium">var count = 5;</p>
+					<p class="content is-medium">var string = "Привет %s! У вас %s сообщений".format()</p>
+					<p class="content is-medium">console.log(string);</p>
+					<p class="content is-medium">// Привет Иван! У вас 5 сообщений</p>
+				</div>
+			</article>
+			<article class="message is-success">
+				<div class="message-header">
+					<p>Решение</p>
+				</div>
+				<div class="message-body">
+					<pre class="content is-medium">
+var name = "Иван";
+var count = 5;
+String.prototype.format = function format() {
+    return this.replace("%s", name).replace("%s", count);  
+};
+var string = "Привет %s! У вас %s сообщений".format();
+
+function showString(){
+	alert(string);
+}
+					</pre>	
+				</div>
+				<div class="block">
+					<input type="button" class="button is-success" value="Результат" name="format" OnClick="showString()">
+				</div>
+			</article>
+
+		</div>
+		<div class="block">
+			<article class="message">
+				<div class="message-header">
+					<p>5) Сверстать этот мокап:</p>
+				</div>
+				<div class="message-body">
+					<img src="img/mockup.jpg" alt="mockup">
+				</div>
+			</article>
+			<article class="message is-success">
+				<div class="message-header">
+					<p>Решение</p>
+				</div>
+				<div class="message-body">
+					<div class="container">
+													
+						<div class="block">
+							<a href="mockup.html" class="button is-success">To Mockup</a>
+						</div>
+					</div>
+				</div>
+			</article>
+		</div>
+		
+	</div>
+</body>
+</html>
